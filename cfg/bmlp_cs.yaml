@@ -1,0 +1,25 @@
+MODEL:
+  NAME: "BasicMLPModel"
+  NEG_SAMPLING_TYPE: None
+  LOSS_WEIGHT: [0.0034,0.5204,0.4762]
+  ADD_KB_COMMONSENSE: True
+SOLVER:
+  LR: 1e-5
+  NUM_EPOCHS: 15
+  LOG_PERIOD: 10
+  TEST_PERIOD: 100
+  CHECKPOINT_PERIOD: 500
+DATALOADER:
+  BATCH_SIZE: 1024
+  NUM_WORKERS: 32
+DATASET:
+  TRAIN:
+    PSEUDO_LABEL_FILE_PATH: '/home/hammad/kairos/data/grounding/total_grounding_data.json'
+    VIDEO_EMBED_DIR: '/home/hammad/kairos/data/videos_embeddings_correct'
+    ALL_EVENTS_FILE: '/home/hammad/kairos/data/grounding/grounded_vid_events.json'
+    VIDEO_SHOTS: '/home/hammad/kairos/data/videos_shots/total_shots_data.json'
+  VAL:
+    TEST_FILE_PATH: '/home/hammad/kairos/data/test.json'
+    ANNOT_FILE_PATH: '/home/hammad/kairos/data/annotations/validation.json'
+    VIDEO_EMBED_DIR: '/home/hammad/kairos/data/videos_embeddings_test/'
+    VIDEO_SHOTS: '/home/hammad/kairos/data/videos_shots_test/shot_proposals_test.json'

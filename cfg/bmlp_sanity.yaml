@@ -1,0 +1,22 @@
+MODEL:
+  NAME: "BasicMLPModel"
+  NEG_SAMPLING_TYPE: None
+  LOSS_WEIGHT: [0.0064, 0.5265, 0.4671]
+SOLVER:
+  LR: 1e-5
+  NUM_EPOCHS: 15
+  LOG_PERIOD: 10
+  TEST_PERIOD: 500
+  CHECKPOINT_PERIOD: 500
+DATALOADER:
+  BATCH_SIZE: 1024
+  NUM_WORKERS: 16
+DATASET:
+  TRAIN:
+    PSEUDO_LABEL_FILE_PATH: '/home/hammad/kairos/data/test.json'
+    VIDEO_EMBED_DIR: '/home/hammad/kairos/data/videos_embeddings_test/'
+    ALL_EVENTS_FILE: '/home/hammad/kairos/data/annotations/annotated_train.json'
+  VAL:
+    TEST_FILE_PATH: '/home/hammad/kairos/data/test.json'
+    ANNOT_FILE_PATH: '/home/hammad/kairos/data/annotations/annotated_test.json'
+    VIDEO_EMBED_DIR: '/home/hammad/kairos/data/videos_embeddings_test/'

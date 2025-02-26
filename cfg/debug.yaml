@@ -1,0 +1,35 @@
+MODEL:
+  NAME: "BasicMLPModel"
+  NEG_SAMPLING_TYPE: None
+  LOSS_WEIGHT: [0.0205, 0.2052, 0.7743]
+  ADD_KB_COMMONSENSE: True
+  ADD_CONTEXTUAL_TRANSFORMER: True
+  EVENTS_ELEMENTWISE_SUB: True
+  EVENTS_ELEMENTWISE_MUL: True
+  USE_FOCAL_LOSS: True
+SOLVER:
+  LR: 1e-3
+  NUM_EPOCHS: 15 
+  LOG_PERIOD: 20
+  TEST_PERIOD: 30
+  CHECKPOINT_PERIOD: 30
+DATALOADER:
+  BATCH_SIZE: 64 
+  NUM_WORKERS: 4
+DATASET:
+  TRAIN:
+    PSEUDO_LABEL_FILE_PATH: '/home/hammad/kairos/Subevent_EventSeg/output/m2e2_rels_finer_modified_grounded.json'
+    VIDEO_EMBED_DIR: '/dvmm-filer3c/projects/kairos-multimodal-event/data/m2e2/frames_embeds/'
+    ALL_EVENTS_FILE: '/home/hammad/kairos/ETypeClus/outputs/m2e2/m2e2_all_events.json'
+    VIDEO_SHOTS: '/dvmm-filer3c/projects/kairos-multimodal-event/data/m2e2/shot_proposals.json'
+    GROUNDED_EVENTS_FILE: '/home/hammad/kairos/ETypeClus/outputs/m2e2/m2e2_all_events_grounded.json'
+  VAL:
+    TEST_FILE_PATH: '/home/hammad/kairos/data/test.json'
+    ANNOT_FILE_PATH: '/home/hammad/kairos/data/annotations/test_small.json'
+    VIDEO_EMBED_DIR: '/home/hammad/kairos/data/videos_embeddings_test/'
+    VIDEO_SHOTS: '/home/hammad/kairos/data/videos_shots_test/shot_proposals_test.json'
+  TEST:
+    TEST_FILE_PATH: '/home/hammad/kairos/data/test.json'
+    ANNOT_FILE_PATH: '/home/hammad/kairos/data/annotations/test_small.json'
+    VIDEO_EMBED_DIR: '/home/hammad/kairos/data/videos_embeddings_test/'
+    VIDEO_SHOTS: '/home/hammad/kairos/data/videos_shots_test/shot_proposals_test.json'
